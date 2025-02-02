@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - FurnitureFinder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'contact.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header class="visible">
+        <div class="container">
+            <ul class="nav">
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <li class="active"><a href="{% url 'contact' %}">CONTACT</a></li>
+                <li><a href="{% url 'search' %}">SEARCH</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">LOGIN</a></li>
+                <li><a href="{% url 'register' %}">REGISTER</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+    <section id="contact">
+        <h1 class="section-header">Contact</h1>
+        <div class="contact-wrapper">
+            <form id="contact-form" class="form-horizontal" role="form" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-floating">
+                    <div class="form-group">
+                        {{ field.label }}
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor %}
+                <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                    <div class="alt-send-button">
+                        <span class="send-text">
+                            <i class="fa fa-paper-plane"></i>SEND</span>
+                    </div>
+                </button>
+            </form>
+            <!-- ここからコンタクト -->
+            <div class="direct-contact-container">
+                <ul class="contact-list">
+                    <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">City,
+                                State</span></i></li>
+                    <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a
+                                    href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
+                    <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a
+                                    href="mailto:#" title="Send me an email">2447037@stu.o-hara.ac.jp</a></span></i>
+                    </li>
+                </ul>
+                <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+            </div>
+        </div>
+    </section>
+    <!-- <script src="{% static 'contact.js' %}"></script> -->
+    <script src="https://kit.fontawesome.com/dba5c05d2c.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

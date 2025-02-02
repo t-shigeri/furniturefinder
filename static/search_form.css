@@ -1,0 +1,251 @@
+header {
+    width: 100%;
+    float: left;
+    position: fixed;
+    top: 0;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    left: 0;
+    transition: 500ms;
+    -ms-transform: translate(0px, -100px);
+    -webkit-transform: translate(0px, -100px);
+    -moz-transform: translate(0px, -100px);
+    transform: translate(0px, -100px);
+    z-index: 1000;
+}
+
+.visible {
+    -ms-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+}
+
+.nav {
+    float: right;
+    text-align: center;
+}
+
+.nav li {
+    float: left;
+    position: relative;
+}
+
+.nav li a {
+    float: left;
+    line-height: 80px; /* 高さを小さくします */
+    color: #101010;
+    position: relative;
+    font-size: 14px; /* フォントサイズを小さくします */
+    height: 80px; /* 高さを小さくします */
+    font-weight: 400;
+    overflow: hidden;
+    transition: 500ms;
+    padding: 0 15px; /* パディングを小さくします */
+    font-family: 'Open Sans', sans-serif;
+    z-index: 1;
+}
+
+.nav li:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    transition: 500ms;
+}
+
+.nav li:hover:after {
+    height: 100%;
+    top: 0;
+    background: rgba(150, 39, 39, 1);
+}
+
+.nav li.active:after {
+    height: 100%;
+    top: 0;
+    background: rgba(150, 39, 39, 1);
+}
+
+.nav li:hover a,
+.nav li.active a {
+    color: #fff;
+}
+
+.logo {
+    line-height: 80px; /* 高さを小さくします */
+    font-weight: 700;
+    color: #101010;
+    font-size: 40px; /* フォントサイズを小さくします */
+    text-align: center;
+    position: relative;
+    top: 0px;
+    height: 80px; /* 高さを小さくします */
+    float: left;
+}
+
+.logo img {
+    position: relative;
+    top: 10px;
+    height: 60px; /* 高さを小さくします */
+}
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+body {
+    background:
+        -webkit-linear-gradient(hsla(0, 67%, 37%, 1),
+            hsla(180, 67%, 37%, 1));
+    background:
+        -moz-linear-gradient(hsla(0, 67%, 37%, 1),
+            hsla(180, 67%, 37%, 1));
+    background:
+        -o-linear-gradient(hsla(0, 67%, 37%, 1),
+            hsla(180, 67%, 37%, 1));
+    background:
+        linear-gradient(hsla(0, 67%, 37%, 1),
+            hsla(180, 67%, 37%, 1));
+    padding-top: 100px; /* ヘッダーの高さに合わせて余白を調整 */
+}
+
+.content {
+    padding: 20px;
+}
+
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    outline: none;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,800,400&subset=latin,latin-ext);
+
+.content img {
+    max-width: 300px; /* 画像の最大幅を小さくします */
+    width: 100%;
+    height: auto;
+}
+
+.furniture-item {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.furniture-item img {
+    float: left;
+    margin-right: 20px;
+    max-width: 300px; /* 画像の最大幅を小さくします */
+    width: 300px; /* 画像の幅を小さくします */
+    height: auto;
+}
+
+.furniture-details {
+    overflow: hidden;
+}
+
+.search-form {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #bbb;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+}
+
+.search-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: hsla(0, 67%, 37%, 1);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: hsla(180, 67%, 37%, 1);
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(20% - 5px);
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+.product-details {
+    padding: 5px;
+}
+
+.product-details h3 {
+    font-size: 0.8em; /* フォントサイズをさらに小さくします */
+    margin: 0 0 5px;
+}
+
+.product-details p {
+    margin: 0 0 5px;
+    color: #555;
+    font-size: 0.7em; /* フォントサイズをさらに小さくします */
+}
+
+.product-item a {
+    text-decoration: none;
+    color: inherit;
+}

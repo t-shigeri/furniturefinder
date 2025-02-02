@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header class="visible">
+        <div class="container">
+            <ul class="nav">
+                <li class="active"><a href="{% url 'index' %}">HOME</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                <li><a href="{% url 'search' %}">SEARCH</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">LOGIN</a></li>
+                <li><a href="{% url 'register' %}">REGISTER</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+
+    <li class="fancy">
+        <div class="home_img">
+            <img src="{% static 'images/20250103_035114643_iOS.jpg' %}" alt="home背景画像1">
+            <div class="centered-text">FurnitureFinder</div>
+            <div class="cat_img">
+                <img src="{% static 'images/20240616_034241597_iOS.jpg' %}" alt="猫">
+            </div>
+            <div class="room">
+                <img src="{% static 'images/20241201_130701560_iOS.jpg' %}" alt="room">
+            </div>
+        </div>
+    </li>
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+<footer class="footer">
+    <div class="md-flex md-justify-between">
+        <ul class="footer__navi flex">
+            <li><a href="{% url 'reference' %}">REFERENCE</a></li>
+        </ul>
+    </div>
+    <hr />
+    <p class="copyright">
+        © 2023
+    </p>
+</footer>
+
+</html>

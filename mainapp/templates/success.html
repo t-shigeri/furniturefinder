@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - FurnitureFinder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'contact.css' %}">
+</head>
+
+<body>
+    <header class="visible">
+        <div class="container">
+            <ul class="nav">
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                <li><a href="{% url 'search' %}">SEARCH</a></li>
+                <li><a href="{% url 'login' %}"> LOGIN</a></li>
+            </ul>
+        </div>
+    </header>
+    <section id="success">
+        <h1 class="section-header">Success</h1>
+        <p>Thank you for your message. We will get back to you shortly.</p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Return to Home</a>
+    </section>
+</body>
+
+</html>

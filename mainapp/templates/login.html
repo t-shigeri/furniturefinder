@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ログイン - FurnitureFinder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'login.js' %}"></script>
+</head>
+
+<body>
+    <header class="visible">
+        <div class="container">
+            <ul class="nav">
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                <li><a href="{% url 'search' %}">SEARCH</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' %}">PROFILE</a></li>
+                <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                {% else %}
+                <li class="active"><a href="{% url 'login' %}">LOGIN</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+    <div class="login">
+        <h2 class="active">Sign In</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" class="text" name="username" placeholder="Username" required>
+            <input type="password" class="text" name="password" placeholder="Password" required>
+            <button class="signin" type="submit">Sign In</button>
+        </form>
+    </div>
+</body>
+
+</html>

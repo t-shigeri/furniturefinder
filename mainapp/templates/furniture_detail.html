@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ furniture.name }} - FurnitureFinder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'furiture_detail.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <ul class="nav">
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                <li><a href="{% url 'search' %}">SEARCH</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">LOGIN</a></li>
+                    <li><a href="{% url 'register' %}">REGISTER</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>{{ furniture.name }}</h1>
+        <div class="furniture-detail">
+            {% if furniture.image %}
+                <img src="{{ furniture.image.url }}" alt="{{ furniture.name }}" class="furniture-image">
+            {% endif %}
+            <div class="furniture-info">
+                <p><strong>スタイル:</strong> {{ furniture.style }}</p>
+                <p><strong>高さ:</strong> {{ furniture.height }} cm</p>
+                <p><strong>幅:</strong> {{ furniture.width }} cm</p>
+                <p><strong>奥行き:</strong> {{ furniture.depth }} cm</p>
+                <p>{{ furniture.description }}</p>
+            </div>
+        </div>
+        <a href="{% url 'search' %}" class="back-button">検索に戻る</a>
+    </main>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FurnitureFinder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <header class="visible">
+        <div class="container">
+            <ul class="nav">
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <li class="active"><a href="{% url 'about' %}">ABOUT US</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                <li><a href="{%url 'search' %}">SEARCH</a></li>
+                <li><a href="{%url 'reference' %}">REFERENCE</a></li>
+        </div>
+    </header>
+
+    <h1>About Us</h1>
+    <p>FurnitureFinderは、ユーザーが理想の家具を見つけるお手伝いをするためのプラットフォームです。私たちのミッションは、ユーザーにとって使いやすく、直感的なインターフェースを提供することです。</p>
+    <script src="{% static 'script.js' %}"></script>
+
+</body>
+
+</html>
